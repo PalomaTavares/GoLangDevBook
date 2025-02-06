@@ -28,7 +28,7 @@ func Load() {
 		Port = 9000
 	}
 
-	ConnectionString = fmt.Sprintf("%s:%s@/%s?chatset=utf8&parseTime=True&loc=UTC",
+	ConnectionString = fmt.Sprintf("%s:%s@/%s?charset=utf8&parseTime=True&loc=UTC",
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASS"),
 		os.Getenv("DB_NAME"),

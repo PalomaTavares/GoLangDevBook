@@ -9,7 +9,7 @@ var userRoutes = []Route{
 	{
 		URI:                  "/users",
 		Method:               http.MethodPost,
-		Function:             controllers.CrateUser,
+		Function:             controllers.CreateUser,
 		RequireAuthetication: false,
 	},
 	{
@@ -19,19 +19,19 @@ var userRoutes = []Route{
 		RequireAuthetication: false,
 	},
 	{
-		URI:                  "/users/{userId}",
+		URI:                  "/users/{userID}",
 		Method:               http.MethodGet,
 		Function:             controllers.GetUser,
 		RequireAuthetication: false,
 	},
 	{
-		URI:                  "/users/{userId}",
+		URI:                  "/users/{userID}",
 		Method:               http.MethodPut,
 		Function:             controllers.UpdateUser,
 		RequireAuthetication: false,
 	},
 	{
-		URI:                  "/users/{userId}",
+		URI:                  "/users/{userID}",
 		Method:               http.MethodDelete,
 		Function:             controllers.DeleteUser,
 		RequireAuthetication: false,
