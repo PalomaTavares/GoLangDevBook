@@ -1,12 +1,14 @@
 package controllers
 
 import (
+	"api/src/authentication"
 	"api/src/db"
 	"api/src/models"
 	"api/src/repositories"
 	"api/src/responses"
 	"api/src/security"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -45,5 +47,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		responses.Error(w, http.StatusUnauthorized, error)
 		return
 	}
-	w.Write([]byte("Login successfull"))
+	token, err := authentication.CreateToken(savedUSer.ID)
+	if err != nil {
+		fmt.Println("Erro ao criar token:", err)
+		http.Error(w, "Erro ao gerar token", http.StatusInternalServerError)
+		return
+	}
+
+	w.Write([]byte(token))
+
 }
