@@ -9,3 +9,9 @@ values
 (1,2),
 (2,1),
 (1,3);
+
+INSERT INTO posts (title, content, author_id)
+VALUES
+("Bate o tambô", "meu pai vem de aruanda e a nossa mãe é iansã", 1),
+("O Bloco", "meu coração viajou", 2),
+("hard truths", "4 estrelas e meia", 3);
