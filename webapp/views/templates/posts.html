@@ -1,0 +1,42 @@
+  {{define "likes"}}
+  <i class="fa-solid fa-heart like-post" style="color: #f1428b;" style="cursor:pointer;"></i>
+  <span>{{.Likes}} </span>
+  {{end}}
+
+  {{define "edit"}}
+    <a href="/post/{{.ID}}/update" style="text-decoration: none;">  <i class="fa-solid fa-pen-to-square" style="color: #8474b4;"></i>
+    </a>
+  {{end}}
+
+  {{define "delete"}}
+  <i class="fa-solid fa-trash text-danger delete-post" style="cursor:pointer;"></i>
+  
+  {{end}}
+
+  {{define "post-header"}}
+    <h1 class="display-4">{{.Title}}</h1>
+    <p class="lead">{{.Content}}</p>
+    <a href="/users/{{.IDAuthor}}"> {{.NickAuthor}} - {{.CreatedIn.Format "02/01/2006" }}</a>
+    <hr class="my-4">
+  {{end}}
+
+  {{define "allowed-post"}}
+  <div class="jumbotron" data-post-id="{{.ID}}">
+        {{template "post-header" .}}
+        <p>
+            {{template "likes" .}}
+            {{template "edit" .}}
+            {{template "delete" .}}
+        </p>
+  </div>
+  {{end}}
+
+  {{define "not-allowed-post"}}
+  <div class="jumbotron" data-post-id="{{.ID}}">
+    {{template "post-header" .}}
+    <p>
+        {{template "likes" .}}
+    </p>
+  </div>
+
+  {{end}}
